@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/toDoFragment">
+
+    <fragment
+        android:id="@+id/toDoFragment"
+        android:name="com.example.thingstodo.fragments.ToDoFragment"
+        android:label="@string/fragment_to_do"
+        tools:layout="@layout/fragment_to_do">
+        <action
+            android:id="@+id/action_toDoFragment_to_addToDo"
+            app:destination="@id/addToDo" />
+        <action
+            android:id="@+id/action_toDoFragment_to_thingToDoFragment"
+            app:destination="@id/thingToDoFragment" />
+        <action
+            android:id="@+id/action_toDoFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addToDo"
+        android:name="com.example.thingstodo.fragments.AddToDoFragment"
+        android:label="@string/fragment_add_to_do"
+        tools:layout="@layout/fragment_add_to_do">
+        <action
+            android:id="@+id/action_addToDo_to_toDoFragment"
+            app:destination="@id/toDoFragment"
+            app:popUpTo="@id/toDoFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/thingToDoFragment"
+        android:name="com.example.thingstodo.fragments.ThingToDoFragment"
+        android:label="@string/fragment_thing_to_do"
+        tools:layout="@layout/fragment_thing_to_do">
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_thingToDoFragment_to_editToDoFragment"
+            app:destination="@id/editToDoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editToDoFragment"
+        android:name="com.example.thingstodo.fragments.EditToDoFragment"
+        android:label="@string/fragment_edit_to_do"
+        tools:layout="@layout/fragment_edit_to_do">
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_editToDoFragment_to_toDoFragment"
+            app:destination="@id/toDoFragment"
+            app:popUpTo="@id/toDoFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.thingstodo.fragments.SettingsFragment"
+        android:label="@string/fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+</navigation>
